@@ -1,0 +1,89 @@
+Executar um container:
+-> docker run -it ubuntu /bin/bash
+
+Verificar containers em utilização:
+-> docker ps
+
+Verificar todos os containers:
+-> docker ps -a
+
+Compartilhamento / Exposição de portas
+-> docker run -p 8080:80 nginx
+
+Executar um container em segundo plano (modo detached)
+-> docker run -d -p 8080:80 nginx
+	 or
+-> docker container run -d --name <nome> -p 8080:8080 <nome da pasta>:<tag da imagem> 
+
+Remover um container
+-> docker rm <id ou nome do container> (-f se quiser forçar)
+
+Remover um container após sair
+-> docker run --rm -p 8080:80 nginx
+
+Remover todos os containers (linux/mac/bash,etc)
+-> docker rm $(docker ps -a -q) -f
+
+Para acessar ou executar um comando em um container
+-> docker exec -it nome-do-container <comando ou /bin/bash>
+
+Listar imagens
+-> docker images
+
+Remover uma imagem
+-> docker rmi <nome da imagem>
+
+Remover todas as imagens
+-> docker rmi $(docker images -q) -f
+
+Exemplo Dockerfile:
+-> FROM golang:1.14
+
+   WORKDIR /go/src/
+
+   COPY . .
+
+   RUN GOOS=linux go build -ldflags="-s -w"
+
+   EXPOSE 8081
+
+   ENTRYPOINT ["./main"
+
+Gerar build de uma imagem
+-> docker build -t <nome da imagem>:<versao da imagem> .
+
+Login
+-> docker login
+
+Realizar o push de sua imagem:
+-> docker push <nome da imagem>
+
+Exemplo de um dockercompose.yaml
+-> version: '3'
+   services:
+     nginx:
+     image: nginx
+     volumes:
+     - ./nginx:/usr/share/nginx/html/
+     ports:
+     - 8080:80
+
+     redis:
+     image: redis:alpine
+     expose:
+     - 6379
+     
+ Iniciar servicos declarados no docker-compose.yml:
+ -> docker-compose up
+ 
+  Iniciar servicos declarados no docker-compose.yml de forma desachatada:
+ -> docker-compose up -d
+ 
+ Encerrar servicos docker-compose:
+ -> docker-compose down
+ 
+ Listar os containers no docker-compose:
+ -> docker-compose ps
+ 
+ Encerrar container do docker-compose:
+ -> docker-compose -it nome-do-container /bin/bash ou o comando a ser executado
