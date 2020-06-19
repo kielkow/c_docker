@@ -87,3 +87,24 @@ Exemplo de um dockercompose.yaml
  
  Encerrar container do docker-compose:
  -> docker-compose -it nome-do-container /bin/bash ou o comando a ser executado
+
+Mostrar arquivos dentro do container/imagem:
+-> docker run <nome do container/imagem> ls
+
+Executar processo bash para um container:
+-> docker run -it <nome do container/imagem>:<tag da imagem (opcional)> bash
+
+Procurar por imagens:
+-> docker search <nome da imagem>
+
+Logs do container:
+-> docker logs -f <id da imagem>
+
+Parar container:
+-> docker stop <id da imagem>
+
+Apagar container:
+-> docker rm <nome do container>
+
+Executar container em determinado diretorio:
+-> docker run -d --name <nome do meu container> -p 8080:8080 -v `pwd`:<caminho do deploy da imagem> <nome da imagem>
