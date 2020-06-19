@@ -117,3 +117,15 @@ Fazer copia da imagem para o docker hub:
 
 Remover imagem:
 -> docker rmi <nome da imagem>:<tag da imagem (opcional)>
+
+Sair do bash de um container sem mata-lo:
+-> Crtl P+Q
+
+Parar todos os containers de uma vez:
+-> docker stop $(docker ps -aq)
+
+Remover todos os containers de uma vez:
+-> docker rm $(docker ps -aq)
+
+Remover todas as imagens de uma vez:
+-> docker rmi $(docker images -q)
