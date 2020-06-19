@@ -108,3 +108,6 @@ Apagar container:
 
 Executar container em determinado diretorio:
 -> docker run -d --name <nome do meu container> -p 8080:8080 -v `pwd`:<caminho do deploy da imagem> <nome da imagem>
+
+Mostrar informacoes:
+-> docker info
