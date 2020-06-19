@@ -111,3 +111,9 @@ Executar container em determinado diretorio:
 
 Mostrar informacoes:
 -> docker info
+
+Fazer copia da imagem para o docker hub:
+-> docker pull <nome da imagem>:<tag da imagem (opcional)>
+
+Remover imagem:
+-> docker rmi <nome da imagem>:<tag da imagem (opcional)>
