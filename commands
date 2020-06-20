@@ -129,3 +129,18 @@ Remover todos os containers de uma vez:
 
 Remover todas as imagens de uma vez:
 -> docker rmi $(docker images -q)
+
+Iniciar docker swarm:
+-> docker swarm init --advertise-addr <ip da maquina>:2377 --listen-addr <ip da maquina>:2377
+
+Gerar token manager docker swarm:
+-> docker swarm join-token manager
+
+Gerar token worker docker swarm:
+-> docker swarm join-token worker
+
+Listar nodes:
+-> docker node ls
+
+Promover node como manager:
+-> docker node promote <id do node>
