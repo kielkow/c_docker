@@ -156,6 +156,8 @@ Listar servicos da imagem:
 
 Inspecionar um service:
 -> docker service inspect <nome do servico>
+   or
+-> docker service inspect --pretty <nome do servico>
 
 Escalar services:
 -> docker service scale <nome do servico>=7
@@ -164,3 +166,24 @@ Escalar services:
 
 Listar tasks de um node:
 -> docker node ps <nome do node>
+
+Remover service 
+-> docker service rm <nome do servico>
+
+Criar overlay network:
+-> docker network create -d overlay ps-net
+
+Listar overlay networks:
+-> docker network ls
+
+Deploy service com overlay network:
+-> docker service create --name <nome do servico> --network ps-net -p 80:80 --replicas 12 <nome da imagem>:<tag da imagem>
+
+Criar service com update-parallelism e update-delay:
+-> docker service create \ --update-parallelism 2 \ --update-delay 10m
+
+Atualizar service:
+-> docker service update --image <nome da imagem>:<tag da imagem> --update-parallelism 2 \ --update-delay 10s
+
+Listar services por versao da imagem:
+-> docker service ps <nome do servico> | grep :<versao da imagem>
