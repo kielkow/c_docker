@@ -211,3 +211,9 @@ Listar tasks em uma stack:
 
 Remover stack:
 -> docker stack rm <nome da stack>
+
+Join docker swarm como manager:
+-> docker swarm join --token SWMTKN-1-3pu6hszjas19xyp7ghgosyx9k8atbfcr8p2is99znpy26u2lkl-7p73s1dx5in4tatdymyhg9hu2 192.168.99.121:2377
+
+Join docker swarm como worker:
+-> docker swarm join --token SWMTKN-1-3pu6hszjas19xyp7ghgosyx9k8atbfcr8p2is99znpy26u2lkl-1awxwuwd3z9j1z3puu7rcgdbx 192.168.99.121:2377
