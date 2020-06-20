@@ -47,7 +47,7 @@ Exemplo Dockerfile:
 
    EXPOSE 8081
 
-   ENTRYPOINT ["./main"
+   ENTRYPOINT ["./main"]
 
 Gerar build de uma imagem
 -> docker build -t <nome da imagem>:<versao da imagem> .
