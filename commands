@@ -187,3 +187,27 @@ Atualizar service:
 
 Listar services por versao da imagem:
 -> docker service ps <nome do servico> | grep :<versao da imagem>
+
+Ver versao docker-compose:
+-> docker-compose --version
+
+Gerar build docker-compose:
+-> docker-compose build
+
+Push tag para uma imagem:
+-> docker tag <repositorio da imagem> <nome da imagem>
+
+Push de uma imagem para o docker hub:
+-> docker push <nome da imagem>
+
+Gerar bundle de uma imagem docker compose:
+-> docker-compose bundle
+
+Deploy de uma stack:
+-> docker stack deploy <nome da stack>
+
+Listar tasks em uma stack:
+-> docker stack tasks <nome da stack>
+
+Remover stack:
+-> docker stack rm <nome da stack>
