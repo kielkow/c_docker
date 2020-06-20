@@ -156,3 +156,11 @@ Listar servicos da imagem:
 
 Inspecionar um service:
 -> docker service inspect <nome do servico>
+
+Escalar services:
+-> docker service scale <nome do servico>=7
+   or
+-> docker service update --replicas 10 <nome do servico>
+
+Listar tasks de um node:
+-> docker node ps <nome do node>
