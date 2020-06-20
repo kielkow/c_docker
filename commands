@@ -144,3 +144,15 @@ Listar nodes:
 
 Promover node como manager:
 -> docker node promote <id do node>
+
+Criar service:
+-> docker service create --name <nome do service> -p 8080:8080 --replicas 5 <nome da imagem>
+
+Listar servicos:
+-> docker service ls
+
+Listar servicos da imagem:
+-> docker service ps <nome do servico>
+
+Inspecionar um service:
+-> docker service inspect <nome do servico>
