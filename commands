@@ -1,4 +1,7 @@
-Executar um container:
+Executar container com uma imagem:
+-> docker run -dp 80:80 docker/getting-started
+
+Executar um container com terminal interativo:
 -> docker run -it ubuntu /bin/bash
 
 Verificar containers em utilização:
