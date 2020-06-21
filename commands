@@ -56,14 +56,20 @@ Exemplo Dockerfile:
 
    ENTRYPOINT ["./main"]
 
-Gerar build de uma imagem
+Gerar build de uma imagem:
 -> docker build -t <nome da imagem>:<versao da imagem> .
+
+Gerar build de uma imagem com seu usuario:
+-> docker build -t <nome do user>/<nome da imagem>:<versao da imagem (opcional)> .
 
 Login
 -> docker login
 
 Realizar o push de sua imagem:
 -> docker push <nome da imagem>
+
+Realizar o push de sua imagem com seu usuario:
+-> docker push <nome do usuario>/<nome da imagem>
 
 Exemplo de um dockercompose.yaml
 -> version: '3'
