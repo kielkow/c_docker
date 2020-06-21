@@ -1,5 +1,5 @@
 Executar container com uma imagem:
--> docker run -dp 80:80 docker/getting-started
+-> docker run -dp 80:80 YOUR-USER-NAME/getting-started
 
 Executar um container com terminal interativo:
 -> docker run -it ubuntu /bin/bash
