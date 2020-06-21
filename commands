@@ -220,3 +220,6 @@ Join docker swarm como worker:
 
 Parar e remover um container ao mesmo tempo:
 -> docker rm -f <the-container-id>
+
+Fazer login no docker hub:
+-> docker login -u <user> -p <password>
