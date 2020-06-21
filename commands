@@ -195,7 +195,7 @@ Gerar build docker-compose:
 -> docker-compose build
 
 Push tag para uma imagem:
--> docker tag <repositorio da imagem> <nome da imagem>
+-> docker tag getting-started YOUR-USER-NAME/getting-started
 
 Push de uma imagem para o docker hub:
 -> docker push <nome da imagem>
