@@ -268,3 +268,6 @@ services:
 
 volumes:
   todo-mysql-data:
+
+Executar um container com variaveis ambiente:
+-> docker run --name leaderboard-redis -e REDIS_PASSWORD=redis123 -d -p 6379:6379 bitnami/redis:latest
