@@ -1,3 +1,7 @@
+Duvidas? Acessar link(s) abaixo:
+-> https://www.docker.com/101-tutorial
+-> https://www.docker.com/play-with-docker
+
 Executar container com uma imagem:
 -> docker run -dp 80:80 YOUR-USER-NAME/getting-started
 
