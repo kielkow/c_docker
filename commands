@@ -18,6 +18,9 @@ Verificar todos os containers:
 Compartilhamento / Exposição de portas
 -> docker run -p 8080:80 nginx
 
+Compartilhamento na porta da máquina e do container / Exposição de portas
+-> docker run -d --name my_nginx -p 80:80 nginx:alpine
+
 Executar um container em segundo plano (modo detached)
 -> docker run -d -p 8080:80 nginx
 	 or
