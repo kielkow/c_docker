@@ -250,8 +250,15 @@ Criar volume:
 Criar volume para um container:
 -> docker run -d --name my_nginx -p 8080:80 -v $(pwd):/usr/share/nginx/html nginx
 
-Executar um container por um volume especifico, exemplo:
+Criar volume apontando para pasta da máquina local:
+-> docker volume create --driver local --opt type=none --opt device=$(pwd) --opt o=bind volume_local
+
+Executar um container por um volume especifico, exemplos:
 -> docker run -dp 3000:3000 -v todo-db:/etc/todos getting-started
+-> docker run -d --name=nginx2 -p 8081:80 -v volume_local:/usr/share/nginx/html nginx
+
+Remover todos os volumes:
+-> docker volume prune
 
 Inspecionar volume:
 -> docker volume inspect todo-db
