@@ -35,6 +35,9 @@ Remover um container após sair
 Remover todos os containers (linux/mac/bash,etc)
 -> docker rm $(docker ps -a -q) -f
 
+Para executar um comando em um container
+-> docker exec -it nome-do-container bash
+
 Para acessar ou executar um comando em um container
 -> docker exec -it nome-do-container <comando ou /bin/bash>
 
