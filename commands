@@ -247,6 +247,9 @@ Fazer login no docker hub:
 Criar volume:
 -> docker volume create <nome do volume>
 
+Criar volume para um container:
+-> docker run -d --name my_nginx -p 8080:80 -v $(pwd):/usr/share/nginx/html nginx
+
 Executar um container por um volume especifico, exemplo:
 -> docker run -dp 3000:3000 -v todo-db:/etc/todos getting-started
 
