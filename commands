@@ -193,8 +193,17 @@ Remover service
 Criar overlay network:
 -> docker network create -d overlay ps-net
 
+Criar network:
+-> docker network create -d bridge my_network
+
+Criar container conectado a uma network:
+-> docker run -d --name my_container_nginx --net=my_network nginx
+
 Listar overlay networks:
 -> docker network ls
+
+Inspecionar network:
+-> docker network inspect bridge
 
 Deploy service com overlay network:
 -> docker service create --name <nome do servico> --network ps-net -p 80:80 --replicas 12 <nome da imagem>:<tag da imagem>
