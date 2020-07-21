@@ -77,6 +77,7 @@ Realizar o push de sua imagem:
 
 Realizar o push de sua imagem com seu usuario:
 -> docker push <nome do usuario>/<nome da imagem>
+-> docker push kielkow/my_nginx:latest
 
 Exemplo de um dockercompose.yaml
 -> version: '3'
