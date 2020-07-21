@@ -136,6 +136,9 @@ Mostrar informacoes:
 Fazer copia da imagem para o docker hub:
 -> docker pull <nome da imagem>:<tag da imagem (opcional)>
 
+Pegar copia da imagem do docker hub:
+-> docker run -d --name=my_nginx -p 8080:80 kielkow/my_nginx-commit:v2
+
 Remover imagem:
 -> docker rmi <nome da imagem>:<tag da imagem (opcional)>
 
