@@ -303,3 +303,9 @@ volumes:
 
 Executar um container com variaveis ambiente:
 -> docker run --name leaderboard-redis -e REDIS_PASSWORD=redis123 -d -p 6379:6379 bitnami/redis:latest
+
+Commit de uma alteração no container:
+-> docker commit bab7227d31d5 kielkow/nginx-commit 
+
+Gerar container commitado:
+-> docker run -d --name=my_nginx -p 8082:80 kielkow/nginx-commit
