@@ -38,6 +38,9 @@ Remover todos os containers (linux/mac/bash,etc)
 Para executar um comando em um container
 -> docker exec -it nome-do-container bash
 
+Para executar um comando em um container sem bash
+-> docker exec -it nome-do-container apk add bash
+
 Para acessar ou executar um comando em um container
 -> docker exec -it nome-do-container <comando ou /bin/bash>
 
