@@ -316,3 +316,7 @@ Commit de uma alteração no container:
 
 Gerar container commitado:
 -> docker run -d --name=my_nginx -p 8082:80 kielkow/nginx-commit
+
+Instalar rabbitmq:
+-> criar pasta: mkdir -p /docker/rabbitmq/data
+-> sudo docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 --restart=always --hostname rabbitmq-master -v /docker/rabbitmq/data:/var/lib/rabbitmq rabbitmq:3-management
