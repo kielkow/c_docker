@@ -332,3 +332,12 @@ Remover todos os containers:
 
 Remover imagem:
 -> sudo docker image rm <image_id>
+
+Exemplo de Dockerfile para projeto Node/Typescript:
+ FROM node:12                     // Informa a versão do Node
+ WORKDIR /usr/src/clean-node-api  // Informa o caminho e o nome da pasta da aplicação que será no servidor
+ COPY ./package.json .            // Copia o package.json para a imagem
+ RUN npm install --only=prod      // Executa o comando durante criação da imagem
+ COPY ./dist ./dist               // Copia a pasta dist para a imagem
+ EXPOSE 5000                      // Informa porta
+ CMD npm start                    // Executa comando para iniciar
