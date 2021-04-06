@@ -323,3 +323,9 @@ Instalar rabbitmq:
 
 Instalar mongodb:
 -> sudo docker container run -d --name mongo -p 27017:27017 mongo
+
+Remover container:
+-> sudo docker container rm <container_id>
+
+Remover todos os containers:
+-> sudo docker container prune
