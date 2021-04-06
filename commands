@@ -341,3 +341,6 @@ Exemplo de Dockerfile para projeto Node/Typescript:
  COPY ./dist ./dist               // Copia a pasta dist para a imagem
  EXPOSE 5000                      // Informa porta
  CMD npm start                    // Executa comando para iniciar
+
+Executar imagem dentro do shell
+-> sudo docker run -it <nome_imagem> sh
