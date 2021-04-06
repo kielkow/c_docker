@@ -329,3 +329,6 @@ Remover container:
 
 Remover todos os containers:
 -> sudo docker container prune
+
+Remover imagem:
+-> sudo docker image rm <image_id>
