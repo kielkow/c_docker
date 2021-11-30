@@ -126,7 +126,7 @@ Logs do container:
 -> docker logs -f <id da imagem>
 
 Parar container:
--> docker stop <id da imagem>
+-> docker stop <image_id or container_name>
 
 Apagar container:
 -> docker rm <nome do container>
