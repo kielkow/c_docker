@@ -8,7 +8,7 @@ Executar container com uma imagem:
 
 Executar um container com terminal interativo:
 -> docker run -it <container_name> /bin/bash
--> docker run -it ubuntu /bin/bash
+-> exemplo: docker run -it ubuntu /bin/bash
 
 Verificar containers em utilização:
 -> docker ps
