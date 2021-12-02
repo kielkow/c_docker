@@ -345,3 +345,6 @@ Exemplo de Dockerfile para projeto Node/Typescript:
 
 Executar imagem dentro do shell
 -> sudo docker run -it <nome_imagem> sh
+
+Iniciar container:
+-> docker start <container_id>
