@@ -98,11 +98,14 @@ Exemplo de um dockercompose.yaml
      expose:
      - 6379
      
- Iniciar servicos declarados no docker-compose.yml:
+ Executar servicos declarados no docker-compose.yml:
  -> docker-compose up
  
- Iniciar servicos declarados no docker-compose.yml de forma desachatada:
+ Executar servicos declarados no docker-compose.yml de forma desachatada:
  -> docker-compose up -d
+
+ Iniciar servicos declarados no docker-compose.yml:
+ -> docker-compose start
 
  Parar servicos declarados no docker-compose.yml:
  -> docker-compose stop
