@@ -101,8 +101,11 @@ Exemplo de um dockercompose.yaml
  Iniciar servicos declarados no docker-compose.yml:
  -> docker-compose up
  
-  Iniciar servicos declarados no docker-compose.yml de forma desachatada:
+ Iniciar servicos declarados no docker-compose.yml de forma desachatada:
  -> docker-compose up -d
+
+ Parar servicos declarados no docker-compose.yml:
+ -> docker-compose stop
  
  Encerrar servicos docker-compose:
  -> docker-compose down
