@@ -132,6 +132,9 @@ Procurar por imagens:
 -> docker search <nome da imagem>
 
 Logs do container:
+-> docker logs <id da imagem>
+
+Logs do container em tempo real:
 -> docker logs -f <id da imagem>
 
 Parar container:
