@@ -116,8 +116,11 @@ Exemplo de um dockercompose.yaml
  Listar os containers no docker-compose:
  -> docker-compose ps
  
- Encerrar container do docker-compose:
- -> docker-compose -it nome-do-container /bin/bash ou o comando a ser executado
+ Executar processo bash para servicos do docker-compose:
+ -> docker-compose -it <container_name> /bin/bash
+ 
+ Executar comando no terminal para servicos do docker-compose:
+ -> docker-compose -it <container_name> <command>
 
 Mostrar arquivos dentro do container/imagem:
 -> docker run <nome do container/imagem> ls
