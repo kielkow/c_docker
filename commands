@@ -363,3 +363,6 @@ Executar imagem dentro do shell
 
 Iniciar container:
 -> docker start <container_id>
+
+Verificar IP do container:
+-> docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container_name>
