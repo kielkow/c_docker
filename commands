@@ -121,6 +121,9 @@ Exemplo de um dockercompose.yaml
  
  Executar comando no terminal para servicos do docker-compose:
  -> docker-compose -it <container_name> <command>
+ 
+ Forçar recriação do docker-compose:
+ -> docker-compose up --force-recreate
 
 Mostrar arquivos dentro do container/imagem:
 -> docker run <nome do container/imagem> ls
