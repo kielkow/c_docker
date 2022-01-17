@@ -366,3 +366,6 @@ Iniciar container:
 
 Verificar IP do container:
 -> docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container_name>
+
+Criar container postgres com nome e senha para o banco:
+-> docker run --name <container_name> -e POSTGRES_DB=<db_name> -e POSTGRES_PASSWORD=<db_password> -p 5432:5432 -d postgres
