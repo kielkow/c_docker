@@ -17,7 +17,7 @@ Verificar todos os containers:
 -> docker ps -a
 
 Compartilhamento / Exposição de portas
--> docker run -p 8080:80 nginx
+-> docker run -p 8080:80 nginx (a primeira porta é da maquina local, e a segunda é a porta do container)
 
 Compartilhamento na porta da máquina e do container / Exposição de portas
 -> docker run -d --name my_nginx -p 80:80 nginx:alpine
