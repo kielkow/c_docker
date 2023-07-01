@@ -285,14 +285,15 @@ Listar volumes:
 Criar volume:
 -> docker volume create [volume_name]
 
-Criar container usando volume:
--> docker run -d --name [container_name] -p [port_number] --mount type=volume,source=[volume_name],target=[container_volume_name] [image_name]
-   example: docker run -d --name my_nginx -p 8080:80 --mount type=volume,source=my_volume,target=/nginx_volume nginx
+Criar container com volume:
+-> docker run -d --name [container_name] -p [port_number] -v [volume_name]:[container_directory] [image_name]
+   example: docker run -d --name my_nginx -p 8080:80 -v nginx_volume:/usr/share/nginx/html nginx
+-> docker run -d --name [container_name] -p [port_number] --mount type=volume,source=[volume_name],target=[container_directory] [image_name]
+   example: docker run -d --name my_nginx -p 8080:80 --mount type=volume,source=nginx_volume,target=/nginx_volume nginx
 
 Mapear arquivos para um container à partir dos dados da maquina local:
 -> docker run -d --name [container_name] -p [port_number] -v [local_machine_directory]:[container_directory] [image_name] (forma antiga)
 -> docker run -d --name [container_name] -p [port_number] --mount type=bind,source=[machine_directory],target=[container_directory] [image_name]
-
    example: docker run -d --name my_nginx -p 8080:80 --mount type=bind,source="$(pwd)"/html,target=/usr/share/nginx/html nginx
    obs: '$(pwd)' retorna o caminho do diretório que você está na sua máquina.
 
