@@ -280,7 +280,11 @@ Criar volume:
 -> docker volume create <nome do volume>
 
 Criar volume para um container:
--> docker run -d --name my_nginx -p 8080:80 -v $(pwd):/usr/share/nginx/html nginx
+-> docker run -d --name my_nginx -p 8080:80 -v $(pwd):/usr/share/nginx/html nginx (forma antiga)
+-> docker run -d --name [container_name] -p [port_number] --mount type=bind,source=[machine_directory],target=[container_directory] [image_name]
+
+   example: docker run -d --name my_nginx -p 8080:80 --mount type=bind,source="$(pwd)"/html,target=/usr/share/nginx/html nginx
+   obs: '$(pwd)' retorna o caminho do diretório que você está na sua máquina.
 
 Criar volume apontando para pasta da máquina local:
 -> docker volume create --driver local --opt type=none --opt device=$(pwd) --opt o=bind volume_local
