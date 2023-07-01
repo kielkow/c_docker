@@ -292,19 +292,20 @@ Criar container com volume:
    example: docker run -d --name my_nginx -p 8080:80 --mount type=volume,source=nginx_volume,target=/nginx_volume nginx
 
 Mapear arquivos para um container à partir dos dados da maquina local:
--> docker run -d --name [container_name] -p [port_number] -v [local_machine_directory]:[container_directory] [image_name] (forma antiga)
+-> docker run -d --name [container_name] -p [port_number] -v [machine_directory]:[container_directory] [image_name]
 -> docker run -d --name [container_name] -p [port_number] --mount type=bind,source=[machine_directory],target=[container_directory] [image_name]
    example: docker run -d --name my_nginx -p 8080:80 --mount type=bind,source="$(pwd)"/html,target=/usr/share/nginx/html nginx
-   obs: '$(pwd)' retorna o caminho do diretório que você está na sua máquina.
+   obs: '$(pwd)' retorna o caminho do diretório da máquina local.
 
-Criar volume apontando para pasta da máquina local:
--> docker volume create --driver local --opt type=none --opt device=$(pwd) --opt o=bind volume_local
+Criar volume usando dados da máquina local:
+-> docker volume create --name [volume_name] --opt type=none --opt device=[local_path] --opt o=bind
+   example: docker volume create --name nginx_volume --opt type=none --opt device=$(pwd)/nginx_volume --opt o=bind
 
-Executar um container por um volume especifico, exemplos:
+Executar um container por um volume especifico:
 -> docker run -dp 3000:3000 -v todo-db:/etc/todos getting-started
 -> docker run -d --name=nginx2 -p 8081:80 -v volume_local:/usr/share/nginx/html nginx
 
-Remover todos os volumes:
+Remover todos os volumes que não estão sendo usados:
 -> docker volume prune
 
 Inspecionar volume:
