@@ -1,4 +1,7 @@
-Duvidas? Acessar link(s) abaixo:
+Obs:
+-> Os volumes são uma forma de salvar e sincronizar os dados da máquina local com os containers.
+
+Documentações:
 -> https://www.docker.com/101-tutorial
 -> https://www.docker.com/play-with-docker
 -> https://docs.docker.com/get-started/resources/
