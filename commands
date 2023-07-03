@@ -311,7 +311,7 @@ Remover todos os volumes que não estão sendo usados:
 Inspecionar volume:
 -> docker volume inspect [volume_name]
 
-Exmplo de um docker-compose:
+Exmplo de docker-compose com nodejs e mysql:
 version: "3.7"
 
 services:
@@ -388,3 +388,16 @@ Criar container postgresql com nome e senha para o banco:
 
 Criar container postgresql versão bitnami:
 -> docker run --name postgresql -e POSTGRESQL_DATABASE=postgresql -e POSTGRESQL_USERNAME=postgresql -e POSTGRESQL_PASSWORD=postgresql -p 5432:5432 -d bitnami/postgresql
+
+Exmplo de docker-compose com postgreql:
+version: '3'
+
+services:
+  api-solid-pg:
+    image: bitnami/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_DATABASE=apisolidpg
+      - POSTGRESQL_USERNAME=postgresql
+      - POSTGRESQL_PASSWORD=postgresql
