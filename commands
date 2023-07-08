@@ -1,5 +1,16 @@
 Obs:
 -> Os volumes são uma forma de salvar e sincronizar os dados da máquina local com os containers.
+-> Caso tenha um arquivo .env dentro do projeto, é possível passar os valores das variaveis para o docker-compose utilizando '${}'. Por exemplo:
+   version: '3'
+   services:
+     api-server:
+       image: bitnami/postgresql
+       ports:
+         - 5432:5432
+       environment:
+         - POSTGRESQL_DATABASE=${POSTGRESQL_DATABASE}
+         - POSTGRESQL_USERNAME=${POSTGRESQL_USERNAME}
+         - POSTGRESQL_PASSWORD=${POSTGRESQL_PASSWORD}
 
 Documentações:
 -> https://www.docker.com/101-tutorial
