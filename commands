@@ -1,6 +1,7 @@
 Obs:
 -> Os volumes são uma forma de salvar e sincronizar os dados da máquina local com os containers.
 -> Para acessar minhas e outras imagens: https://hub.docker.com.
+-> Criando Dockerfile para app em NodeJS: https://nodejs.org/en/docs/guides/nodejs-docker-webapp.
 -> Caso tenha um arquivo .env dentro do projeto, é possível passar os valores das variaveis para o docker-compose utilizando '${}'. Por exemplo:
    version: '3'
    services:
