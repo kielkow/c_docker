@@ -16,6 +16,7 @@ Obs:
          - POSTGRESQL_DATABASE=${POSTGRESQL_DATABASE}
          - POSTGRESQL_USERNAME=${POSTGRESQL_USERNAME}
          - POSTGRESQL_PASSWORD=${POSTGRESQL_PASSWORD}
+-> A feature 'links' foi depreciada. Ao invés dela utilizar 'networks'.
 
 Documentações:
 -> https://www.docker.com/101-tutorial
