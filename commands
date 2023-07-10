@@ -74,18 +74,13 @@ Remover uma imagem
 Remover todas as imagens
 -> docker rmi $(docker images -q) -f
 
-Exemplo Dockerfile:
--> FROM golang:1.14
-
-   WORKDIR /go/src/
-
-   COPY . .
-
-   RUN GOOS=linux go build -ldflags="-s -w"
-
-   EXPOSE 8081
-
-   ENTRYPOINT ["./main"]
+-> Exemplo Dockerfile para app em Go:
+FROM golang:1.14
+WORKDIR /go/src/
+COPY . .
+RUN GOOS=linux go build -ldflags="-s -w"
+EXPOSE 8081
+ENTRYPOINT ["./main"]
 
 Gerar build de uma imagem:
 -> docker build -t <nome da imagem>:<versao da imagem> .
@@ -103,21 +98,20 @@ Realizar o push de sua imagem com seu usuario:
 -> docker push <nome do usuario>/<nome da imagem>
 -> docker push kielkow/my_nginx:latest
 
-Exemplo de um dockercompose.yaml
--> version: '3'
-   services:
-     nginx:
-     image: nginx
-     volumes:
-     - ./nginx:/usr/share/nginx/html/
-     ports:
-     - 8080:80
-
-     redis:
-     image: redis:alpine
-     expose:
-     - 6379
-     
+-> Exemplo de docker-compose com Nginx e Redis:
+version: '3'
+services:
+  nginx:
+    image: nginx
+    volumes:
+      - './nginx:/usr/share/nginx/html/'
+    ports:
+      - '8080:80'
+  redis:
+    image: 'redis:alpine'
+    expose:
+      - 6379
+ 
  Executar servicos declarados no docker-compose.yml:
  -> docker-compose up
  
@@ -328,9 +322,8 @@ Remover todos os volumes que não estão sendo usados:
 Inspecionar volume:
 -> docker volume inspect [volume_name]
 
-Exmplo de docker-compose com nodejs e mysql:
+-> Exmplo de docker-compose com nodejs e mysql:
 version: "3.7"
-
 services:
   app:
     image: node:12-alpine
@@ -345,7 +338,6 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: secret
       MYSQL_DB: todos
-
   mysql:
     image: mysql:5.7
     volumes:
@@ -353,7 +345,6 @@ services:
     environment: 
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: todos
-
 volumes:
   todo-mysql-data:
 
@@ -382,7 +373,7 @@ Remover todos os containers:
 Remover imagem:
 -> sudo docker image rm <image_id>
 
-Exemplo de Dockerfile para projeto Node/Typescript:
+-> Exemplo de Dockerfile para projeto Node/Typescript:
  FROM node:12                     // Informa a versão do Node
  WORKDIR /usr/src/clean-node-api  // Informa o caminho e o nome da pasta da aplicação que será no servidor
  COPY ./package.json .            // Copia o package.json para a imagem
@@ -406,7 +397,7 @@ Criar container postgresql com nome e senha para o banco:
 Criar container postgresql versão bitnami:
 -> docker run --name postgresql -e POSTGRESQL_DATABASE=postgresql -e POSTGRESQL_USERNAME=postgresql -e POSTGRESQL_PASSWORD=postgresql -p 5432:5432 -d bitnami/postgresql
 
-Exmplo de docker-compose com postgreql:
+-> Exmplo de docker-compose com postgreql:
 version: '3'
 services:
   postgresql:
@@ -418,23 +409,98 @@ services:
       - POSTGRESQL_USERNAME=postgresql
       - POSTGRESQL_PASSWORD=postgresql
 
-Exemplo de Dockerfile para app NodeJS:
+-> Exemplo de Dockerfile para app NodeJS:
 FROM node:18
-
 # Create app directory
 WORKDIR /usr/src/app
-
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package*.json ./
-
 RUN npm install
 # If you are building your code for production
 # RUN npm ci --omit=dev
-
 # Bundle app source
 COPY . .
-
 EXPOSE 8080
 CMD [ "node", "server.js" ]
+
+-> Exemplo de Dockerfile para app NodeJS com Prisma:
+# Run image commands:
+# docker build -t ignite-api-solid .
+# docker run --name ignite-api-solid -p 3333:3333 ignite-api-solid
+# Stop container and remove image:
+# docker stop ignite-api-solid && docker rm ignite-api-solid && docker rmi ignite-api-solid
+# Use Node.JS Image LTS version.
+FROM node:18
+# Create app directory.
+WORKDIR /app
+# Copy package.json and package-lock.json files
+COPY package*.json ./
+# Copy Prisma file
+COPY prisma ./prisma/
+# Copy .env file
+COPY .env ./
+# Copy tsconfig file
+COPY tsconfig.json ./
+# Install dependencies.
+RUN npm install
+# Bundle app source.
+COPY . .
+# Generate Prisma Client.
+RUN npx prisma generate
+# Build app code.
+RUN npm run build
+# Container Image listening port 3333.
+EXPOSE 3333
+# After image build, the command bellow will be executed.
+CMD [ "npm", "run", "start:migrate:prod" ]
+
+-> Exemplo de docker-compose com app NodeJS e PostgreSQL:
+version: '3'
+services:
+  postgresql:
+    image: bitnami/postgresql
+    container_name: postgresql
+    hostname: postgresql
+    ports:
+      - 5432:5432
+    networks:
+      - app-network
+    environment:
+      - POSTGRESQL_DATABASE=${POSTGRESQL_DATABASE}
+      - POSTGRESQL_USERNAME=${POSTGRESQL_USERNAME}
+      - POSTGRESQL_PASSWORD=${POSTGRESQL_PASSWORD}
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d apisolidpg -U postgresql"]
+      interval: 3s
+      timeout: 3s
+      retries: 3
+    restart: unless-stopped
+  ignite-api-solid:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ignite-api-solid
+    container_name: ignite-api-solid
+    depends_on:
+      postgresql:
+        condition: service_healthy
+    ports:
+      - 3333:3333
+    networks:
+      - app-network
+    environment:
+      - PORT=${PORT}
+      - NODE_ENV=${NODE_ENV}
+      - HOST=${HOST}
+      - DATABASE_URL=${DATABASE_URL}
+    restart: always
+networks:
+  app-network:
+    name: 'app-network'
+    driver: bridge
+volumes:
+  postgresql-data:
