@@ -407,14 +407,13 @@ Criar container postgresql versão bitnami:
 
 Exmplo de docker-compose com postgreql:
 version: '3'
-
 services:
-  api-solid-pg:
+  postgresql:
     image: bitnami/postgresql
     ports:
       - 5432:5432
     environment:
-      - POSTGRESQL_DATABASE=apisolidpg
+      - POSTGRESQL_DATABASE=postgresql
       - POSTGRESQL_USERNAME=postgresql
       - POSTGRESQL_PASSWORD=postgresql
 
@@ -433,10 +432,8 @@ RUN npm install
 # If you are building your code for production
 # RUN npm ci --omit=dev
 
-RUN npm run build
-
 # Bundle app source
 COPY . .
 
 EXPOSE 8080
-CMD [ "node", "build/server.js" ]
+CMD [ "node", "server.js" ]
