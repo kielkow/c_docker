@@ -504,3 +504,19 @@ networks:
     driver: bridge
 volumes:
   postgresql-data:
+
+-> Usar uma variável declarada no arquivo .env dentro do docker-compose e do Dockerfile:
+1. Definir a variável no arquivo docker-compose:
+version: "3.8"
+services:
+  myservice:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - MY_VARIABLE=${MY_VARIABLE}
+    ...
+2. Modificar Dockerfile para usar o argumento:
+FROM <base_image>
+ARG MY_VARIABLE=$MY_VARIABLE
+...
