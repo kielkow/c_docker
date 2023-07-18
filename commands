@@ -166,11 +166,17 @@ Executar container em determinado diretorio:
 Mostrar informacoes:
 -> docker info
 
-Fazer copia da imagem para o docker hub:
+Clonar imagem do dockerhub:
 -> docker pull <nome da imagem>:<tag da imagem (opcional)>
 
-Pegar copia da imagem do docker hub:
+Executar imagem do dockerhub:
 -> docker run -d --name=my_nginx -p 8080:80 kielkow/my_nginx-commit:v2
+
+Gerar tag da imagem:
+-> docker tag <image_name> <image_name>:<tag_name>
+
+Enviar imagem para o dockerhub:
+-> docker push <nome da imagem>:<tag da imagem (opcional)>
 
 Remover imagem:
 -> docker rmi <nome da imagem>:<tag da imagem (opcional)>
