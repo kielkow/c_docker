@@ -526,3 +526,6 @@ services:
 FROM <base_image>
 ARG MY_VARIABLE=$MY_VARIABLE
 ...
+
+Rodar Dockerfile especifico:
+-> docker build -f Dockerfile.<dockerfile_name> .
